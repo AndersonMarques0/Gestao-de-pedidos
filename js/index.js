@@ -3,7 +3,7 @@ const emailInput = document.getElementById('email');
 const passwordInput = document.getElementById('password');
 
 // Usuário e senha padrão
-const user = 'cafeteriaforte@admin.com';
+const user = 'cafeteriaforte@gmail.com';
 const password = 'Admin1234';
 
 form.addEventListener('submit', (event) => {
