@@ -2,8 +2,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
+    }
 
+body{
+    background-image: linear-gradient(to right, #fab38046, #ad5e26b9, #914409);
+}
 .container {
     display: flex;
     flex-direction: column;
