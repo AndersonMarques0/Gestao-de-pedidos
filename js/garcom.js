@@ -35,3 +35,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     carregarPedidoConcluido(); // Chama a função para carregar o pedido
 });
+// JavaScript para expandir/contrair a barra lateral
+const toggleButton = document.getElementById('toggle-btn');
+const sidebar = document.querySelector('.sidebar');
+const body = document.body;
+
+toggleButton.addEventListener('click', () => {
+    sidebar.classList.toggle('expanded');
+    body.classList.toggle('sidebar-expanded');
+});
