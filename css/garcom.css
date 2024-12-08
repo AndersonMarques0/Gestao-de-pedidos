@@ -1,5 +1,245 @@
+/* Reset de margin e padding */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+/* Estilo do corpo */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    transition: margin-left 0.3s ease;
+    margin-left: 60px; /* Largura da barra lateral contraída */
+}
+
+/* Ajuste do corpo quando a barra lateral está expandida */
+body.sidebar-expanded {
+    margin-left: 200px; /* Aumenta a largura quando a barra lateral está expandida */
+}
+
+/* Barra Lateral */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 60px; /* Largura inicial */
+    height: 100%;
+    background-color: #F28C28; /* Laranja Tangerina */
+    transition: width 0.3s ease;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: 4px 0 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Barra lateral expandida */
+.sidebar.expanded {
+    width: 200px;
+}
+
+/* Botão de alternância */
+.toggle-btn {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 15px;
+    margin: 20px 0;
+    transition: color 0.3s ease;
+}
+
+/* Efeito do hover no botão de alternância */
+.toggle-btn:hover {
+    color: #fff8e1; /* Cor mais clara para o ícone */
+}
+
+/* Menu da barra lateral */
+.sidebar .menu {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    width: 100%;
+}
+
+/* Itens de menu */
+.sidebar .menu li {
+    width: 100%;
+}
+
+/* Itens de menu com ícones */
+.sidebar .menu li a {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    padding: 15px;
+    font-size: 18px;
+    transition: background-color 0.3s ease, padding-left 0.3s ease;
+    border-radius: 8px;
+}
+
+/* Efeito de hover nos itens de menu */
+.sidebar .menu li a:hover {
+    background-color: #F28C28;
+    padding-left: 25px; /* Alarga quando hover */
+}
+
+/* Mostrar o texto quando a barra lateral está expandida */
+.sidebar.expanded .menu li a span {
+    display: inline-block;
+    margin-left: 15px; /* Espaçamento do texto ao lado do ícone */
+}
+
+/* Ocultar o texto quando a barra lateral está contraída */
+.sidebar .menu li a span {
+    display: none;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #F28C28; /* Laranja Tangerina */
+    color: white;
+    padding: 20px 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid #F28C28;
+}
+
+/* Logo */
+header .logo {
+    font-size: 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: white;
+}
+
+/* Estilo para o container dos pedidos */
+#pedidos-container {
+    margin-top: 80px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin-left: 80px; /* Ajusta o conteúdo para não ser coberto pela barra lateral */
+}
+
+/* Título do container */
+#pedidos-container h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #F28C28;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* Cartões de pedidos */
+.card {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: box-shadow 0.3s ease;
+}
+
+/* Efeito de hover nos cartões */
+.card:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card .info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.card .info h2 {
+    color: #F28C28;
+    margin-bottom: 5px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.card .info p {
+    color: #333;
+    font-size: 16px;
+}
+
+.card .status {
+    font-size: 16px;
+    color: #fff;
+    background-color: #28A745;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Botões de ação */
+button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #F28C28;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #D9731F;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    body {
+        margin-left: 0;
+    }
+
+    .sidebar {
+        width: 60px;
+    }
+
+    body.sidebar-expanded {
+        margin-left: 60px;
+    }
+
+    #pedidos-container {
+        margin-left: 0;
+        padding: 10px;
+    
+    
+    }
+
+    .card {
+        flex-direction: column;
+    }
+
+    .card .status {
+        margin-top: 10px;
+    }
 }
