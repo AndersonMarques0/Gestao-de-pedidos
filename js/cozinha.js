@@ -62,25 +62,28 @@ document.addEventListener('DOMContentLoaded', () => {
         concluidoButton.textContent = 'Concluído';
         concluidoButton.className = 'btn-concluido';
 
-        // Adiciona o evento de clique no botão "Concluído"
         concluidoButton.addEventListener('click', (e) => {
-            e.preventDefault(); // Impede o redirecionamento da página
-
-            // Armazenando os dados no localStorage ou em uma variável para enviar para o garçom
+            e.preventDefault();
+        
+            // Obter lista de pedidos concluídos
+            const pedidosConcluidos = JSON.parse(localStorage.getItem('pedidosConcluidos')) || [];
+        
+            // Adicionar novo pedido concluído à lista
             const pedidoData = {
                 nome: pedido.nome,
                 mesa: pedido.mesa,
-                itens: pedido.itens
+                itens: pedido.itens,
+                dataHora: pedido.dataHora // Inclua data e hora para referência
             };
-
-            // Adiciona os dados no localStorage
-            localStorage.setItem('pedidoConcluido', JSON.stringify(pedidoData));
-
-            // Exibe uma mensagem ou realiza outras ações se necessário
+            pedidosConcluidos.push(pedidoData);
+        
+            // Salvar lista atualizada no localStorage
+            localStorage.setItem('pedidosConcluidos', JSON.stringify(pedidosConcluidos));
+        
             alert('Pedido concluído!');
-
             pedidoCard.innerHTML = `<p>Pedido concluído!</p>`;
         });
+        
 
         // Adiciona o botão "Concluído" ao card
         pedidoCard.appendChild(concluidoButton);
@@ -124,4 +127,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Evento de clique no botão "Limpar"
     limparButton.addEventListener('click', limparPedidos);
-});  
+}); 
