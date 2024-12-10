@@ -1,245 +1,254 @@
-/* Reset de margin e padding */
+/* Estilos gerais */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Estilo do corpo */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    line-height: 1.6;
+    font-family: Arial, sans-serif;
+    margin-left: 60px; /* Espaço para o menu contraído */
     transition: margin-left 0.3s ease;
-    margin-left: 60px; /* Largura da barra lateral contraída */
+    background-color: white; /* Fundo claro para contraste */
 }
 
-/* Ajuste do corpo quando a barra lateral está expandida */
-body.sidebar-expanded {
-    margin-left: 200px; /* Aumenta a largura quando a barra lateral está expandida */
-}
-
-/* Barra Lateral */
+/* Barra lateral */
 .sidebar {
     position: fixed;
     top: 0;
     left: 0;
-    width: 60px; /* Largura inicial */
+    width: 60px; /* Menu contraído */
     height: 100%;
-    background-color: #F28C28; /* Laranja Tangerina */
+    background-color: #F28C28;
+    overflow-x: hidden;
     transition: width 0.3s ease;
     z-index: 1000;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
-    box-shadow: 4px 0 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Barra lateral expandida */
 .sidebar.expanded {
-    width: 200px;
+    width: 200px; /* Menu expandido */
 }
 
-/* Botão de alternância */
-.toggle-btn {
-    background-color: transparent;
-    border: none;
+.sidebar .toggle-btn {
+    background-color: #F28C28;
     color: white;
-    font-size: 24px;
+    border: none;
+    width: 100%;
+    padding: 10px;
     cursor: pointer;
-    padding: 15px;
-    margin: 20px 0;
-    transition: color 0.3s ease;
+    font-size: 20px;
+    text-align: center;
 }
 
-/* Efeito do hover no botão de alternância */
-.toggle-btn:hover {
-    color: #fff8e1; /* Cor mais clara para o ícone */
-}
-
-/* Menu da barra lateral */
 .sidebar .menu {
     list-style: none;
     padding: 0;
     margin-top: 20px;
     width: 100%;
+    text-align: left;
 }
 
-/* Itens de menu */
 .sidebar .menu li {
     width: 100%;
 }
 
-/* Itens de menu com ícones */
 .sidebar .menu li a {
     display: flex;
     align-items: center;
-    color: #fff;
+    color: white;
     text-decoration: none;
-    padding: 15px;
-    font-size: 18px;
-    transition: background-color 0.3s ease, padding-left 0.3s ease;
-    border-radius: 8px;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
 }
 
-/* Efeito de hover nos itens de menu */
-.sidebar .menu li a:hover {
-    background-color: #F28C28;
-    padding-left: 25px; /* Alarga quando hover */
-}
-
-/* Mostrar o texto quando a barra lateral está expandida */
-.sidebar.expanded .menu li a span {
-    display: inline-block;
-    margin-left: 15px; /* Espaçamento do texto ao lado do ícone */
-}
-
-/* Ocultar o texto quando a barra lateral está contraída */
+/* Oculta o texto quando o menu está contraído */
 .sidebar .menu li a span {
     display: none;
 }
 
-/* Cabeçalho */
+.sidebar.expanded .menu li a span {
+    display: inline-block;
+}
+
+/* Barra superior */
 header {
-    background-color: #F28C28; /* Laranja Tangerina */
+    background-color: #F28C28;
     color: white;
-    padding: 20px 40px;
+    padding: 10px 20px;
     position: fixed;
     top: 0;
-    left: 0;
     width: 100%;
     z-index: 10;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-bottom: 3px solid #F28C28;
 }
 
-/* Logo */
-header .logo {
-    font-size: 28px;
+.logo {
+    font-size: 24px;
     font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: white;
 }
 
-/* Estilo para o container dos pedidos */
+/* Container dos pedidos */
 #pedidos-container {
-    margin-top: 80px;
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    margin-left: 80px; /* Ajusta o conteúdo para não ser coberto pela barra lateral */
+    margin-top: 80px; /* Compensa a barra superior */
+    padding: 20px; /* Espaçamento interno */
 }
 
-/* Título do container */
-#pedidos-container h1 {
-    font-size: 30px;
-    margin-bottom: 20px;
-    color: #F28C28;
-    font-weight: bold;
-    text-align: center;
-    text-transform: uppercase;
-}
-
-/* Cartões de pedidos */
-.card {
+/* Estilo para os cards de pedido */
+.pedido-card {
     background-color: #fff;
-    padding: 15px;
-    margin-bottom: 15px;
+    border: 1px solid #ddd;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    max-width: 500px;
+    margin: 10px auto;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Efeito de hover nos cartões */
-.card:hover {
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+.pedido-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
-.card .info {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.card .info h2 {
-    color: #F28C28;
-    margin-bottom: 5px;
-    font-size: 22px;
-    font-weight: bold;
-}
-
-.card .info p {
-    color: #333;
-    font-size: 16px;
-}
-
-.card .status {
-    font-size: 16px;
-    color: #fff;
-    background-color: #28A745;
-    padding: 5px 10px;
-    border-radius: 5px;
-    text-transform: uppercase;
-    font-weight: bold;
-}
-
-/* Botões de ação */
-button {
-    display: block;
-    width: 100%;
-    padding: 12px;
-    background-color: #F28C28;
-    color: white;
+.pedido-card p {
     font-size: 1rem;
+    color: #333;
+    margin-bottom: 10px;
     font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-transform: uppercase;
-    transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background-color: #D9731F;
+.pedido-card ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.pedido-card ul li {
+    background-color: #f9f9f9;
+    padding: 8px 12px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.pedido-card ul li:hover {
+    background-color: white;
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
-    body {
-        margin-left: 0;
+    .sidebar {
+        width: 50px;
     }
 
-    .sidebar {
-        width: 60px;
+    body {
+        margin-left: 50px;
+    }
+
+    .sidebar.expanded {
+        width: 150px;
     }
 
     body.sidebar-expanded {
-        margin-left: 60px;
+        margin-left: 150px;
     }
 
     #pedidos-container {
-        margin-left: 0;
+        margin-top: 70px;
         padding: 10px;
-    
-    
     }
 
-    .card {
-        flex-direction: column;
+    .pedido-card {
+        padding: 15px;
+        max-width: 100%;
     }
 
-    .card .status {
-        margin-top: 10px;
+    .pedido-card p {
+        font-size: 0.9rem;
+    }
+
+    .pedido-card ul li {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .sidebar {
+        width: 40px;
+    }
+
+    body {
+        margin-left: 40px;
+    }
+
+    .sidebar.expanded {
+        width: 120px;
+    }
+
+    body.sidebar-expanded {
+        margin-left: 120px;
+    }
+
+    .pedido-card {
+        padding: 10px;
+    }
+
+    .pedido-card p {
+        font-size: 0.8rem;
+    }
+
+    .pedido-card ul li {
+        font-size: 0.7rem;
+    }
+}
+
+/* Botão Limpar */
+.limpar-btn {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background-color: #F28C28;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.limpar-btn:hover {
+    background-color: #ff9f40;
+    transform: scale(1.05);
+}
+
+.limpar-btn:active {
+    background-color: #e07722;
+}
+
+/* Responsividade para botão limpar */
+@media (max-width: 768px) {
+    .limpar-btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .limpar-btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
     }
 }
