@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PedeJá</title>
+    <title>Garçom</title>
     <link rel="stylesheet" href="css/garcom.css">
 </head>
 <body>
@@ -12,10 +12,9 @@
     <div class="sidebar" id="sidebar">
         <button class="toggle-btn" id="toggle-btn">☰</button>
         <ul class="menu">
-            <li><a href="#"><span>Home</span></a></li>
-            <li><a href="#"><span>Pedidos</span></a></li>
-            <li><a href="#"><span>Configurações</span></a></li>
-            <li><a href="#"><span>Ajuda</span></a></li>
+            <li><a href="pedido.html"><span>Pedidos</span></a></li>
+            <li><a href="garcom.html"><span>Garçom</span></a></li>
+            <li><a href="cozinha.html"><span>Cozinha</span></a></li>
         </ul>
     </div>
 
@@ -27,9 +26,12 @@
     <!-- Container dos Pedidos -->
     <div id="pedidos-container">
         <h1>Pedidos Recentes</h1>
+        <!-- Botão Limpar -->
+        <button id="limpar-pedidos" class="limpar-btn">Limpar</button>
         <!-- Pedidos serão carregados dinamicamente -->
     </div>
 
-    <script src="js/garcom.js"></script> <!-- Link para o arquivo JavaScript -->
+    <script src="js/garcom.js"></script>
+    <script src="js/menuPedido.js"></script>
 </body>
 </html>
