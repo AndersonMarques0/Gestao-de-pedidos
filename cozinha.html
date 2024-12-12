@@ -8,14 +8,26 @@
     <link rel="shortcut icon" href="imagens/favicon-order.png" type="image/x-icon">
 </head>
 <body>
-    <h1>Pedidos</h1>
-
-    <button type="button">Limpar</button>
-
-    <div class="container">
-        <div id="pedidos-container"></div>
+     <!-- Barra Lateral -->
+     <div class="sidebar" id="sidebar">
+        <button class="toggle-btn" id="toggle-btn">☰</button>
+        <ul class="menu">
+            <li><a href="pedido.html"><span>Pedidos</span></a></li>
+            <li><a href="garcom.html"><span>Garçom</span></a></li>
+            <li><a href="cozinha.html"><span>Cozinha</span></a></li>
+        </ul>
     </div>
 
+    <header>
+        <h1 class="logo">Pedidos</h1>
+    </header>
+
+    <div class="container">
+        <button type="button" class="limpar-btn">Limpar</button>
+        <div id="pedidos-container"></div>
+    </div>
+    
+    <script src="js/menuPedido.js"></script>
     <script src="js/cozinha.js"></script>
 </body>
 </html>
